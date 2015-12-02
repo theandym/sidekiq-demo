@@ -25,8 +25,8 @@ irb(main):002:0> exit
 Then scale the number of worker dynos to process jobs in the queue:
 
 ```
-$ heroku ps:scale worker=5 -a <app_name>
-$ heroku ps:scale worker=25 -a <app_name>
+$ heroku ps:scale worker=1 -a <app_name>
+$ heroku ps:scale worker=2 -a <app_name>
 ```
 
 When complete, scale down the number of dynos and switch dyno type:
