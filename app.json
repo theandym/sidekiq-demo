@@ -1,0 +1,14 @@
+{
+  "name": "sidekiq-demo",
+  "description": "A simple Heroku-based Sidekiq demo app",
+  "keywords": [
+    "Sidekiq",
+    "workers",
+    "demo"
+  ],
+  "repository": "https://github.com/theandym/sidekiq-demo",
+  "addons": [
+    "heroku-redis:hobby-dev"
+  ],
+  "success_url": "/sidekiq"
+}
