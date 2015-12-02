@@ -7,9 +7,10 @@ A simple Heroku-based Sidekiq demo app.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/theandym/sidekiq-demo)
 
-After deploying, switch dyno type:
+After deploying, upgrade redis plan (for more connections) and switch dyno type:
 
 ```
+$ heroku addons:upgrade REDIS_URL heroku-redis:premium-5 -a <app_name>
 $ heroku ps:type standard-1x -a <app_name>
 ```
 
@@ -29,9 +30,10 @@ $ heroku ps:scale worker=1 -a <app_name>
 $ heroku ps:scale worker=2 -a <app_name>
 ```
 
-When complete, scale down the number of dynos and switch dyno type:
+When complete, scale down the number of dynos, switch dyno type, and downgrade redis plan:
 
 ```
 $ heroku ps:scale worker=0 -a <app_name>
 $ heroku ps:type free -a <app_name>
+$ heroku addons:upgrade REDIS_URL heroku-redis:hobby-dev -a <app_name>
 ```
